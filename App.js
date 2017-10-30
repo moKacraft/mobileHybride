@@ -5,7 +5,7 @@
 */
 import UserContacts from './UserContacts';
 import Geo from './Geo';
-import Camera from './Camera';
+import Cam from './Cam';
 import React, { Component } from 'react';
 import { TabNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
@@ -33,8 +33,8 @@ export const Tabs = TabNavigator({
   Contacts: {
     screen: UserContacts,
   },
-  Camera: {
-    screen: Camera,
+  Cam: {
+    screen: Cam,
   },
 });
 
