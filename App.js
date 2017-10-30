@@ -1,12 +1,12 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
+* Sample React Native App
+* https://github.com/facebook/react-native
+* @flow
+*/
 import UserContacts from './UserContacts';
-import Geo from './Geo'
+import Geo from './Geo';
+import Camera from './Camera';
+import React, { Component } from 'react';
 import { TabNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 import MapView from 'react-native-maps';
@@ -18,22 +18,23 @@ import {
   Dimensions
 } from 'react-native';
 
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
+  'Cmd+D or shake for dev menu',
   android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
+  'Shake or press menu button for dev menu',
 });
 
 export const Tabs = TabNavigator({
-  Moka: {
+  Geolocation: {
     screen: Geo,
   },
-  My: {
+  Contacts: {
     screen: UserContacts,
   },
-  Bitch: {
-    screen: Geo,
+  Camera: {
+    screen: Camera,
   },
 });
 
@@ -58,36 +59,36 @@ export default class App extends Component<{}> {
     };
   }
   componentDidMount() {
-  navigator.geolocation.getCurrentPosition(
-    position => {
-      this.setState({
-        region: {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          latitudeDelta: LATITUDE_DELTA,
-          longitudeDelta: LONGITUDE_DELTA,
-        }
-      });
-    },
-  (error) => console.log(error.message),
-  { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
-  );
-  this.watchID = navigator.geolocation.watchPosition(
-    position => {
-      this.setState({
-        region: {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          latitudeDelta: LATITUDE_DELTA,
-          longitudeDelta: LONGITUDE_DELTA,
-        }
-      });
-    }
-  );
-}
-componentWillUnmount() {
-  navigator.geolocation.clearWatch(this.watchID);
-}
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        this.setState({
+          region: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA,
+          }
+        });
+      },
+      (error) => console.log(error.message),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+    );
+    this.watchID = navigator.geolocation.watchPosition(
+      position => {
+        this.setState({
+          region: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA,
+          }
+        });
+      }
+    );
+  }
+  componentWillUnmount() {
+    navigator.geolocation.clearWatch(this.watchID);
+  }
   render() {
     return <Tabs />;
   }
