@@ -12,7 +12,9 @@
     "react-native-contacts": "^1.0.3",
     "react-native-elements": "^0.17.0",
     "react-native-maps": "^0.17.1",
-    "react-native-vector-icons": "^4.4.2"
+    "react-native-navbar": "^2.1.0",
+    "react-native-vector-icons": "^4.4.2",
+    "react-navigation": "^1.0.0-beta.15"
   },
   "devDependencies": {
     "babel-jest": "21.2.0",

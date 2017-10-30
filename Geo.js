@@ -1,14 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import UserContacts from './UserContacts';
-import Geo from './Geo'
-import { TabNavigator } from 'react-navigation';
-import { Icon } from 'react-native-elements';
 import MapView from 'react-native-maps';
 import {
   Platform,
@@ -25,18 +15,6 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-export const Tabs = TabNavigator({
-  Moka: {
-    screen: Geo,
-  },
-  My: {
-    screen: UserContacts,
-  },
-  Bitch: {
-    screen: Geo,
-  },
-});
-
 let { width, height } = Dimensions.get('window');
 
 const ASPECT_RATIO = width / height;
@@ -45,7 +23,7 @@ const LONGITUDE = 0;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
-export default class App extends Component<{}> {
+export default class Geo extends Component<{}> {
   constructor() {
     super();
     this.state = {
@@ -89,7 +67,21 @@ componentWillUnmount() {
   navigator.geolocation.clearWatch(this.watchID);
 }
   render() {
-    return <Tabs />;
+    return (
+      <View style={styles.container}>
+      <MapView
+        style={styles.map}
+        showsUserLocation={ true }
+        region={ this.state.region }
+        onRegionChange={ region => this.setState({region}) }
+        onRegionChangeComplete={ region => this.setState({region}) }
+      >
+        <MapView.Marker
+          coordinate={ this.state.region }
+        />
+      </MapView>
+      </View>
+    );
   }
 }
 
