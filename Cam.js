@@ -34,7 +34,7 @@ export default class Cam extends Component {
       type={this.state.camera.type}
       aspect={Camera.constants.Aspect.fill}>
       <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
-      <Text style={styles.capture} onPress={this.switchType.bind(this)}>[SWITCH]</Text>
+      <Text style={styles.switc} onPress={this.switchType.bind(this)}>[SWITCH]</Text>
       </Camera>
       </View>
     );
@@ -85,5 +85,12 @@ const styles = StyleSheet.create({
     color: '#000',
     padding: 5,
     margin: 20
+  },
+  switc: {
+    backgroundColor: '#fff',
+    color: '#000',
+    borderRadius: 5,
+    padding: 2,
+    alignSelf: 'flex-end'
   }
 });
