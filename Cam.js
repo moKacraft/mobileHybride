@@ -11,17 +11,41 @@ import Camera from 'react-native-camera';
 
 export default class Cam extends Component {
   constructor(props) {
-  super(props);
-  this.state = {
-    camera: {
-      aspect: Camera.constants.Aspect.fill,
-      captureTarget: Camera.constants.CaptureTarget.cameraRoll,
-      type: Camera.constants.Type.front,
-      orientation: Camera.constants.Orientation.auto,
-      flashMode: Camera.constants.FlashMode.auto,
+    super(props);
+    this.camera = null;
+    this.state = {
+      camera: {
+        aspect: Camera.constants.Aspect.fill,
+        captureTarget: Camera.constants.CaptureTarget.cameraRoll,
+        type: Camera.constants.Type.front,
+        orientation: Camera.constants.Orientation.auto,
+        flashMode: Camera.constants.FlashMode.auto,
+      }
+    };
+  }
+  takePicture = () => {
+    if (this.camera) {
+      this.camera.capture()
+        .then((data) => console.log(data))
+        .catch(err => console.error(err));
     }
-  };
-}
+  }
+  switchType = () => {
+    let newType;
+    const { back, front } = Camera.constants.Type;
+
+    if (this.state.camera.type === back) {
+      newType = front;
+    } else if (this.state.camera.type === front) {
+      newType = back;
+    }
+    this.setState({
+     camera: {
+       ...this.state.camera,
+       type: newType,
+     },
+   });
+ }
   render() {
     return (
       <View style={styles.container}>
@@ -33,45 +57,19 @@ export default class Cam extends Component {
       orientation={Camera.constants.Orientation.auto}
       type={this.state.camera.type}
       aspect={Camera.constants.Aspect.fill}>
-      <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
-      <Text style={styles.switc} onPress={this.switchType.bind(this)}>[SWITCH]</Text>
       </Camera>
+      <View>
+      <Text style={styles.switc} onPress={this.takePicture}>Take a picture</Text>
+      <Text style={styles.switc} onPress={this.switchType}>Switch cam</Text>
+      </View>
       </View>
     );
   }
-
-  takePicture() {
-    const options = {};
-    //options.location = ...
-    this.camera.capture({metadata: options})
-    .then((data) => console.log(data))
-    .catch(err => console.error(err));
-  }
-
-  switchType() {
-    let newType;
-    const { back, front } = Camera.constants.Type;
-
-    if (this.state.camera.type === back) {
-      newType = front;
-    } else if (this.state.camera.type === front) {
-      newType = back;
-    }
-
-    this.setState({
-      camera: {
-        ...this.state.camera,
-        type: newType,
-      },
-    });
-  }
-
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'row',
+    flex: 1
   },
   preview: {
     flex: 1,
@@ -91,6 +89,12 @@ const styles = StyleSheet.create({
     color: '#000',
     borderRadius: 5,
     padding: 2,
-    alignSelf: 'flex-end'
+  },
+  rowContainer: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  rowItem:{
+    flex: 1
   }
 });
