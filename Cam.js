@@ -20,7 +20,8 @@ export default class Cam extends Component {
         type: Camera.constants.Type.front,
         orientation: Camera.constants.Orientation.auto,
         flashMode: Camera.constants.FlashMode.auto,
-      }
+      },
+      shouldRender: true,
     };
   }
   takePicture = () => {
@@ -57,11 +58,9 @@ export default class Cam extends Component {
       orientation={Camera.constants.Orientation.auto}
       type={this.state.camera.type}
       aspect={Camera.constants.Aspect.fill}>
-      </Camera>
-      <View>
       <Text style={styles.switc} onPress={this.takePicture}>Take a picture</Text>
       <Text style={styles.switc} onPress={this.switchType}>Switch cam</Text>
-      </View>
+      </Camera>
       </View>
     );
   }

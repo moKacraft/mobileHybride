@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, FlatList } from 'react-native';
 import Contacts from 'react-native-contacts';
 import { List, ListItem, SearchBar } from 'react-native-elements';
 
-export default class UserContacts extends Component<{}> {
+export default class UserContacts extends Component {
   constructor() {
     super();
     this.state = {
@@ -37,26 +37,9 @@ export default class UserContacts extends Component<{}> {
     );
   };
 
-  renderHeader = () => {
-    return <SearchBar placeholder="Type Here..." lightTheme round />;
-  };
-
-  renderFooter = () => {
-    return (
-      <View
-      style={{
-        paddingVertical: 20,
-        borderTopWidth: 1,
-        borderColor: '#CED0CE'
-      }}
-      >
-      </View>
-    );
-  };
-
   render() {
     return (
-      <View>
+      <View style={styles.container}>
       <Button
       onPress={this.getContacts.bind(this)}
       title='Get contacts'
@@ -84,9 +67,6 @@ export default class UserContacts extends Component<{}> {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    flex: 1
   },
 });

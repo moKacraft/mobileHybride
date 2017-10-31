@@ -6,6 +6,8 @@
 import UserContacts from './UserContacts';
 import Geo from './Geo';
 import Cam from './Cam';
+import Folders from './Folders';
+import Folders_ from './Folders_';
 import React, { Component } from 'react';
 import { TabNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
@@ -27,14 +29,17 @@ const instructions = Platform.select({
 });
 
 export const Tabs = TabNavigator({
-  Geolocation: {
+  Geo: {
     screen: Geo,
   },
-  Contacts: {
+  Contact: {
     screen: UserContacts,
   },
   Cam: {
     screen: Cam,
+  },
+  Folders: {
+    screen: Folders_,
   },
 });
 
