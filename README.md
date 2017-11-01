@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them on Windows
+What things you need to install the software and how to install and run them on Windows
 
 - <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Download</a> and <a href="https://docs.oracle.com/javase/7/docs/webnotes/install/windows/jdk-installation-windows.html">install</a> JDK (v7 or newer)
 - <a href="https://nodejs.org/en/">Download</a> and <a href="http://nodesource.com/blog/installing-nodejs-tutorial-windows/">install</a> Node (v8.1.4 or newer)
@@ -49,12 +49,6 @@ Add additional notes about how to deploy this on a live system
 * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
