@@ -1,4 +1,5 @@
 # mobileHybride
+
 A react native project
 
 ## Getting Started
@@ -9,10 +10,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-node
-genymotion
-java sdk
-react native
+- <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Download</a> and install JDK (v7 or newer)
+- <a href="https://nodejs.org/en/">Download</a> and install Node (v8.1.4 or newer)
+- <a href="https://www.genymotion.com/download/">Download</a> and install Genymotion
 
 ```
 Give examples
@@ -20,21 +20,11 @@ Give examples
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+- `git clone https://github.com/moKacraft/mobileHybride.git`
+- `cd mobileHybride/`
+- `npm install`
+- `react-native run-ios` or `react-native run-android`
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
