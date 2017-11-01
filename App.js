@@ -1,5 +1,4 @@
 import React from 'react';
-import Icon from 'react-native-elements';
 
 import {
   TabNavigator,
@@ -10,6 +9,7 @@ import Geo from './Geo';
 import Cam from './Cam';
 import Folders from './Folders';
 import Folders_ from './Folders_';
+import FolderDetail from './FolderDetail'
 import UserContacts from './UserContacts';
 import UserDetail from './UserDetail';
 import Push from './Push';
@@ -24,6 +24,16 @@ export const ContactStack = StackNavigator({
   },
 });
 
+export const FoldersStack = StackNavigator({
+  Folders: {
+    screen: Folders_,
+    navigationOptions: {header: null}
+  },
+  FolderDetail: {
+    screen: FolderDetail,
+  },
+});
+
 export const Tabs = TabNavigator({
   Geo: {
     screen: Geo,
@@ -35,10 +45,15 @@ export const Tabs = TabNavigator({
     screen: Cam,
   },
   Folders: {
-    screen: Folders_,
+    screen: FoldersStack,
   },
   Push: {
     screen: Push,
+  },
+}, {
+  tabBarOptions: {
+    showIcon: true,
+    showLabel: false,
   },
 });
 

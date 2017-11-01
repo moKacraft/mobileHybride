@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import MapView from 'react-native-maps';
+import { Icon } from 'react-native-elements';
 
 let { width, height } = Dimensions.get('window');
 
@@ -18,6 +19,10 @@ const LATITUDE_DELTA = 0.0522;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 export default class Geo extends React.Component {
+  static navigationOptions = {
+    tabBarLabel: 'geo',
+    tabBarIcon: ({ tintColor }) => <Icon name="my-location" size={25} color={tintColor} />
+  };
   constructor() {
     super();
     this.state = {

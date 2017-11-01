@@ -5,6 +5,7 @@ import {
   View,
   Button,
   FlatList,
+  Image,
 } from 'react-native';
 
 import Contacts from 'react-native-contacts';
@@ -12,9 +13,14 @@ import {
   List,
   ListItem,
   SearchBar,
+  Icon,
 } from 'react-native-elements';
 
 export default class UserContacts extends React.Component {
+  static navigationOptions = {
+    tabBarLabel: 'Contact',
+    tabBarIcon: ({ tintColor }) => <Icon name="contacts" size={25} color={tintColor} />
+  };
   userDetails = (item) => {
     this.props.navigation.navigate('UserDetail', { ...item });
   };
@@ -25,6 +31,7 @@ export default class UserContacts extends React.Component {
       textValue:'Click the button to display contacts',
       contact: [],
       default: '/assets/default.jpg',
+      sorted: [],
     }
   }
 
@@ -39,6 +46,11 @@ export default class UserContacts extends React.Component {
       else {
         this.setState({
           contact: data
+        });
+        this.state.contact.sort(function(a, b){
+          if(a.givenName < b.givenName) return -1;
+          if(a.givenName > b.givenName) return 1;
+          return 0;
         });
       }
     })
@@ -86,9 +98,5 @@ export default class UserContacts extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1
-  },
-  icon: {
-    width: 26,
-    height: 26,
   },
 });

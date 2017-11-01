@@ -9,8 +9,13 @@ import {
 } from 'react-native';
 
 import Camera from 'react-native-camera';
+import { Icon } from 'react-native-elements';
 
 export default class Cam extends React.Component {
+  static navigationOptions = {
+    tabBarLabel: 'cam',
+    tabBarIcon: ({ tintColor }) => <Icon name="camera-alt" size={25} color={tintColor} />
+  };
   constructor(props) {
     super(props);
     this.camera = null;
