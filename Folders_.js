@@ -8,8 +8,17 @@ import {
 } from 'react-native';
 
 import CameraRollPicker from 'react-native-camera-roll-picker';
+import { Icon } from 'react-native-elements';
 
 export default class Folders_ extends React.Component {
+  static navigationOptions = {
+    tabBarLabel: 'folder',
+    tabBarIcon: ({ tintColor }) => <Icon name="camera-roll" size={25} color={tintColor} />
+  };
+  pictureDetails = (item) => {
+    this.props.navigation.navigate('FolderDetail', { ...item });
+  };
+
   constructor(props) {
     super(props);
 
@@ -27,6 +36,8 @@ export default class Folders_ extends React.Component {
     });
     console.log(current);
     console.log(this.state.selected);
+
+    this.props.navigation.navigate('FolderDetail', { ...current });
   }
 
   render() {
