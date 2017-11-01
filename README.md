@@ -10,9 +10,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-- <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Download</a> and install JDK (v7 or newer)
-- <a href="https://nodejs.org/en/">Download</a> and install Node (v8.1.4 or newer)
-- <a href="https://www.genymotion.com/download/">Download</a> and install Genymotion
+#### Windows
+
+- <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Download</a> and <a href="https://docs.oracle.com/javase/7/docs/webnotes/install/windows/jdk-installation-windows.html">install</a> JDK (v7 or newer)
+- <a href="https://nodejs.org/en/">Download</a> and <a href="http://nodesource.com/blog/installing-nodejs-tutorial-windows/">install</a> Node (v8.1.4 or newer)
+- <a href="https://www.genymotion.com/download/">Download</a> and <a href="https://docs.genymotion.com/Content/01_Get_Started/Installation.htm">install</a> Genymotion
 
 ```
 Give examples
