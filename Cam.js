@@ -7,6 +7,7 @@ import {
   TouchableHighlight,
   View
 } from 'react-native';
+
 import Camera from 'react-native-camera';
 
 export default class Cam extends Component {

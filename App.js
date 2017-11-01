@@ -8,8 +8,9 @@ import Geo from './Geo';
 import Cam from './Cam';
 import Folders from './Folders';
 import Folders_ from './Folders_';
+import UserDetail from './UserDetail';
 import React, { Component } from 'react';
-import { TabNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 import MapView from 'react-native-maps';
 import {
@@ -28,12 +29,22 @@ const instructions = Platform.select({
   'Shake or press menu button for dev menu',
 });
 
+export const ContactStack = StackNavigator({
+  Contact: {
+    screen: UserContacts,
+    navigationOptions: {header: null}
+  },
+  UserDetail: {
+    screen: UserDetail,
+  },
+});
+
 export const Tabs = TabNavigator({
   Geo: {
     screen: Geo,
   },
   Contact: {
-    screen: UserContacts,
+    screen: ContactStack,
   },
   Cam: {
     screen: Cam,
@@ -42,6 +53,7 @@ export const Tabs = TabNavigator({
     screen: Folders_,
   },
 });
+
 
 let { width, height } = Dimensions.get('window');
 

@@ -39,12 +39,13 @@ export default class Folders_ extends Component {
           removeClippedSubviews={false}
           groupTypes='SavedPhotos'
           batchSize={5}
-          maximum={3}
-          selected={this.state.selected}
           assetType='Photos'
           imagesPerRow={3}
           imageMargin={5}
-          callback={this.getSelectedImages.bind(this)} />
+          selected={this.state.selected}
+          maximum={0}
+          callback={this.getSelectedImages.bind(this)}
+          />
       </View>
     );
   }
