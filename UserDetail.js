@@ -21,15 +21,20 @@ export default class UserDetail extends React.Component {
       <Tile
       imageSrc={ item.hasThumbnail ? {uri: item.thumbnailPath} : require('./assets/default.jpg') }
       featured
-      title={`${item.givenName.toUpperCase()}`}
-      caption={item.phoneNumbers[0].number}
+      title={(typeof item.givenName) === `undefined` ? `No name` : `${item.givenName.toUpperCase()}`}
+      caption={(typeof item.phoneNumbers[0] === `undefined`) ? `No phone number` : item.phoneNumbers[0].number}
       />
       <List>
       <ListItem
-      title={item.phoneNumbers[0].label}
-      rightTitle={item.phoneNumbers[0].number}
+      title={(typeof item.phoneNumbers[0] === `undefined`) ? `` : item.phoneNumbers[0].label}
+      rightTitle={(typeof item.phoneNumbers[0] === `undefined`) ? `No phone number` : item.phoneNumbers[0].number}
       hideChevron
       />
+      <ListItem
+            title="Email"
+            rightTitle={(typeof item.emailAddresses[0] === `undefined`) ? `No mail` : item.emailAddresses[0].email}
+            hideChevron
+          />
       </List>
       </ScrollView>
     );

@@ -55,6 +55,10 @@ import {
       );
     };
 
+    hasPhone = (item) => {
+      return (typeof item.phoneNumbers[0] === `undefined`) ? false : true;
+    };
+
     render() {
       return (
         <View style={styles.container}>
@@ -64,7 +68,7 @@ import {
           <ListItem
           roundAvatar
           title={`${item.givenName}`}
-          subtitle={`${item.phoneNumbers[0].label} ${item.phoneNumbers[0].number}`}
+          subtitle={this.hasPhone(item) ? `${item.phoneNumbers[0].label} ${item.phoneNumbers[0].number}` : `no phone number available`}
           avatar={ item.hasThumbnail ? {uri: item.thumbnailPath} : require('./assets/default.jpg') }
           containerStyle={{ borderBottomWidth: 0 }}
           onPress={() => this.userDetails(item)}
