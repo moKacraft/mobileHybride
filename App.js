@@ -12,6 +12,7 @@ import Folders from './Folders';
 import Folders_ from './Folders_';
 import UserContacts from './UserContacts';
 import UserDetail from './UserDetail';
+import Push from './Push';
 
 export const ContactStack = StackNavigator({
   Contact: {
@@ -35,6 +36,9 @@ export const Tabs = TabNavigator({
   },
   Folders: {
     screen: Folders_,
+  },
+  Push: {
+    screen: Push,
   },
 });
 

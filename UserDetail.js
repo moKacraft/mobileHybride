@@ -31,10 +31,10 @@ export default class UserDetail extends React.Component {
       hideChevron
       />
       <ListItem
-            title="Email"
-            rightTitle={(typeof item.emailAddresses[0] === `undefined`) ? `No mail` : item.emailAddresses[0].email}
-            hideChevron
-          />
+      title="Email"
+      rightTitle={(typeof item.emailAddresses[0] === `undefined`) ? `No mail` : item.emailAddresses[0].email}
+      hideChevron
+      />
       </List>
       </ScrollView>
     );
