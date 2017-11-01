@@ -31,6 +31,7 @@ export default class UserContacts extends React.Component {
       textValue:'Click the button to display contacts',
       contact: [],
       default: '/assets/default.jpg',
+      sorted: [],
     }
   }
 
@@ -45,6 +46,11 @@ export default class UserContacts extends React.Component {
       else {
         this.setState({
           contact: data
+        });
+        this.state.contact.sort(function(a, b){
+          if(a.givenName < b.givenName) return -1;
+          if(a.givenName > b.givenName) return 1;
+          return 0;
         });
       }
     })

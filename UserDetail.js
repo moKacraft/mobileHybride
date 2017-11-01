@@ -8,11 +8,15 @@ import Contacts from 'react-native-contacts';
 import {
   List,
   ListItem,
-  Tile
+  Tile,
+  Icon,
 } from 'react-native-elements';
 
 export default class UserDetail extends React.Component {
-
+  static navigationOptions = {
+    tabBarLabel: 'ContactDetails',
+    tabBarIcon: ({ tintColor }) => <Icon name="contacts" size={25} color={tintColor} />
+  };
   render() {
     const item = this.props.navigation.state.params;
 

@@ -10,11 +10,15 @@ import {
 import {
   List,
   ListItem,
-  Tile
+  Tile,
+  Icon,
 } from 'react-native-elements';
 
 export default class FolderDetail extends React.Component {
-
+  static navigationOptions = {
+    tabBarLabel: 'folder',
+    tabBarIcon: ({ tintColor }) => <Icon name="camera-roll" size={25} color={tintColor} />
+  };
   render() {
     const win = Dimensions.get('window');
     const current = this.props.navigation.state.params;
