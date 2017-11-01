@@ -64,15 +64,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexWrap: 'wrap',
   },
-  text: {
-    fontSize: 16,
-    alignItems: 'center',
-    color: '#fff',
-  },
-  bold: {
-    fontWeight: 'bold',
-  },
-  info: {
-    fontSize: 12,
-  },
 });

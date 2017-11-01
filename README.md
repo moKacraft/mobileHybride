@@ -37,7 +37,7 @@ JAVA_HOME: C:\path\to\JavaSDK
 ### Running
 ```
 - Launch Genymotion Virtual Terminal
-- react-native run-ios` or `react-native run-android
+- react-native run-android
 ```
 
 ## Deployment
@@ -53,9 +53,3 @@ Add additional notes about how to deploy this on a live system
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc

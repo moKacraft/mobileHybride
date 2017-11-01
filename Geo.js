@@ -14,7 +14,7 @@ let { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LATITUDE = 0;
 const LONGITUDE = 0;
-const LATITUDE_DELTA = 0.0922;
+const LATITUDE_DELTA = 0.0522;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 export default class Geo extends React.Component {
@@ -70,9 +70,6 @@ componentWillUnmount() {
         onRegionChange={ region => this.setState({region}) }
         onRegionChangeComplete={ region => this.setState({region}) }
       >
-        <MapView.Marker
-          coordinate={ this.state.region }
-        />
       </MapView>
       </View>
     );
