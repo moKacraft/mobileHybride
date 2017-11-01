@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import MapView from 'react-native-maps';
+import React from 'react';
 import {
   Platform,
   StyleSheet,
@@ -8,12 +7,7 @@ import {
   Dimensions
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import MapView from 'react-native-maps';
 
 let { width, height } = Dimensions.get('window');
 
@@ -23,7 +17,7 @@ const LONGITUDE = 0;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
-export default class Geo extends Component<{}> {
+export default class Geo extends React.Component {
   constructor() {
     super();
     this.state = {

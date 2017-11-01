@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   AppRegistry,
   Dimensions,
@@ -10,7 +10,7 @@ import {
 
 import Camera from 'react-native-camera';
 
-export default class Cam extends Component {
+export default class Cam extends React.Component {
   constructor(props) {
     super(props);
     this.camera = null;

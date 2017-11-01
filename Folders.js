@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import {
   CameraRoll,
   Image,
@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 
-export default class Folders extends Component {
+export default class Folders extends React.Component {
 
   constructor(props) {
     super(props)

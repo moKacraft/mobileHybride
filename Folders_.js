@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   AppRegistry,
   StyleSheet,
@@ -9,7 +9,7 @@ import {
 
 import CameraRollPicker from 'react-native-camera-roll-picker';
 
-export default class Folders_ extends Component {
+export default class Folders_ extends React.Component {
   constructor(props) {
     super(props);
 
