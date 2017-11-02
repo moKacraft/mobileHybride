@@ -23,7 +23,7 @@ export default class UserDetail extends React.Component {
     return (
       <ScrollView>
       <Tile
-      imageSrc={ item.hasThumbnail ? {uri: item.thumbnailPath} : require('./assets/default.jpg') }
+      imageSrc={ item.hasThumbnail ? {uri: item.thumbnailPath} : require('../assets/default.jpg') }
       featured
       title={(typeof item.givenName) === `undefined` ? `No name` : `${item.givenName.toUpperCase()}`}
       caption={(typeof item.phoneNumbers[0] === `undefined`) ? `No phone number` : item.phoneNumbers[0].number}
