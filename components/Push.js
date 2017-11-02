@@ -23,6 +23,7 @@ export default class Push extends React.Component {
     this.state = {
       isLoading: true,
       returnDate: "",
+      PushNotification: require('react-native-push-notification'),
     }
   }
   componentDidMount() {
@@ -43,17 +44,8 @@ export default class Push extends React.Component {
     });
   }
   requestPush = () => {
-    fetch('https://mobilehybryde.herokuapp.com/hour')
-    .then((response) => response.json())
-    .then((responseJson) => {
-      console.log(responseJson);
-      var PushNotification = require('react-native-push-notification');
-      PushNotification.localNotification({
-        message: this.state.returnDate,
-      });
-    })
-    .catch((error) => {
-      console.error(error);
+    this.state.PushNotification.localNotification({
+      message: "You requested a notification?",
     });
   }
 
@@ -63,16 +55,15 @@ export default class Push extends React.Component {
       <Button
       style={styles.button}
       onPress={this.requestDate}
-      title="Request date"
+      title="Request date from server"
       color="#841584"
       accessibilityLabel="Click to request date from server"
       />
       <Text>{this.state.returnDate}</Text>
-
       <Button
       style={styles.button}
       onPress={this.requestPush}
-      title="Request push"
+      title="Request push notification"
       color="#841584"
       accessibilityLabel="Click to request push notification sent by server"
       />
