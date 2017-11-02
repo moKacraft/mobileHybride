@@ -9,8 +9,10 @@ import {
 } from 'react-native';
 
 import { Icon } from 'react-native-elements';
+import { PushNotification } from 'react-native-push-notification';
 
 export default class Push extends React.Component {
+
   static navigationOptions = {
     tabBarLabel: 'Notifications',
     tabBarIcon: ({ tintColor }) => <Icon name="notifications" size={25} color={tintColor} />
@@ -45,6 +47,10 @@ export default class Push extends React.Component {
     .then((response) => response.json())
     .then((responseJson) => {
       console.log(responseJson);
+      var PushNotification = require('react-native-push-notification');
+      PushNotification.localNotification({
+        message: this.state.returnDate,
+      });
     })
     .catch((error) => {
       console.error(error);
