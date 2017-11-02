@@ -1,6 +1,13 @@
 # mobileHybride
 
-A react native project
+A react native project with:
+```
+- Geolocation on map
+- Phone Contacts list and contact details
+- Front and back cameras usage, taking pictures
+- Saved images folder(s)
+- Push notifications
+```
 
 ## Getting Started
 
@@ -42,7 +49,7 @@ JAVA_HOME: C:\path\to\JavaSDK
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Server deployment
 
 ## Built With
 

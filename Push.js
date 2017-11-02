@@ -8,51 +8,68 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
+import { Icon } from 'react-native-elements';
 
-export default class UserContacts extends React.Component {
+export default class Push extends React.Component {
+  static navigationOptions = {
+    tabBarLabel: 'Notifications',
+    tabBarIcon: ({ tintColor }) => <Icon name="notifications" size={25} color={tintColor} />
+  };
+
   constructor(props) {
-  super(props);
-  this.state = {
-    isLoading: true
+    super(props);
+    this.state = {
+      isLoading: true,
+      returnDate: "",
+    }
   }
-}
+  componentDidMount() {
+    this.requestDate();
+  }
 
-componentDidMount() {
-    return fetch('https://mobilehybryde.herokuapp.com/hour')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        console.log(responseJson);
-        this.setState({
-          test2:responseJson
-        });
-        // let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        // this.setState({
-        //   isLoading: false,
-        //   dataSource: ds.cloneWithRows(responseJson),
-        // }, function() {
-        //   // do something with new state
-        // });
-      })
-      .catch((error) => {
-        console.error(error);
+  requestDate = () => {
+    fetch('https://mobilehybryde.herokuapp.com/hour')
+    .then((response) => response.json())
+    .then((responseJson) => {
+      console.log(responseJson);
+      this.setState({
+        returnDate: responseJson,
       });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  }
+  requestPush = () => {
+    fetch('https://mobilehybryde.herokuapp.com/hour')
+    .then((response) => response.json())
+    .then((responseJson) => {
+      console.log(responseJson);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   }
 
-test() {
-  return "toto";
-}
   render() {
     return (
       <View style={styles.container}>
-        <Text>{this.state.test2}</Text>
-        <Button
-          style={styles.button}
-          onPress={this.test()}
-          title="Learn More"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-          />
+      <Button
+      style={styles.button}
+      onPress={this.requestDate}
+      title="Request date"
+      color="#841584"
+      accessibilityLabel="Click to request date from server"
+      />
+      <Text>{this.state.returnDate}</Text>
 
+      <Button
+      style={styles.button}
+      onPress={this.requestPush}
+      title="Request push"
+      color="#841584"
+      accessibilityLabel="Click to request push notification sent by server"
+      />
       </View>
     );
   }
