@@ -5,14 +5,13 @@ import {
   StackNavigator
 } from 'react-navigation';
 
-import Geo from './Geo';
-import Cam from './Cam';
-import Folders from './Folders';
-import Folders_ from './Folders_';
-import FolderDetail from './FolderDetail'
-import UserContacts from './UserContacts';
-import UserDetail from './UserDetail';
-import Push from './Push';
+import Geo from './components/Geo';
+import Cam from './components/Cam';
+import Folders_ from './components/Folders_';
+import FolderDetail from './components/FolderDetail'
+import UserContacts from './components/UserContacts';
+import UserDetail from './components/UserDetail';
+import Push from './components/Push';
 
 export const ContactStack = StackNavigator({
   Contact: {

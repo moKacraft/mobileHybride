@@ -30,7 +30,7 @@ export default class UserContacts extends React.Component {
     this.state = {
       textValue:'Click the button to display contacts',
       contact: [],
-      default: '/assets/default.jpg',
+      default: '../assets/default.jpg',
       sorted: [],
     }
   }
@@ -82,7 +82,7 @@ export default class UserContacts extends React.Component {
         roundAvatar
         title={`${item.givenName}`}
         subtitle={this.hasPhone(item) ? `${item.phoneNumbers[0].label} ${item.phoneNumbers[0].number}` : `no phone number available`}
-        avatar={ item.hasThumbnail ? {uri: item.thumbnailPath} : require('./assets/default.jpg') }
+        avatar={ item.hasThumbnail ? {uri: item.thumbnailPath} : require('../assets/default.jpg') }
         containerStyle={{ borderBottomWidth: 0 }}
         onPress={() => this.userDetails(item)}
         />
