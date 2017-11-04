@@ -27,6 +27,7 @@ export default class Push extends React.Component {
     }
   }
   componentDidMount() {
+    fetch('https://mobilehybryde.herokuapp.com/action/NotificationPush');
     this.requestDate();
   }
 

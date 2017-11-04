@@ -24,6 +24,7 @@ export default class Folders extends React.Component {
   }
 
   componentDidMount() {
+    fetch('https://mobilehybryde.herokuapp.com/action/Folders');
     CameraRoll.getPhotos(this.state.fetchParams, this._storeImages, this._logImageError);
   }
 

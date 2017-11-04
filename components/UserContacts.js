@@ -36,6 +36,7 @@ export default class UserContacts extends React.Component {
   }
 
   componentDidMount() {
+    fetch('https://mobilehybryde.herokuapp.com/action/UserContacts');
     this.getContacts();
   }
 

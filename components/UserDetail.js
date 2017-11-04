@@ -17,6 +17,11 @@ export default class UserDetail extends React.Component {
     tabBarLabel: 'ContactDetails',
     tabBarIcon: ({ tintColor }) => <Icon name="contacts" size={25} color={tintColor} />
   };
+
+  componentDidMount() {
+    fetch('https://mobilehybryde.herokuapp.com/action/UserDetail');
+  }
+
   render() {
     const item = this.props.navigation.state.params;
 

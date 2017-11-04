@@ -35,6 +35,7 @@ export default class Geo extends React.Component {
     };
   }
   componentDidMount() {
+  fetch('https://mobilehybryde.herokuapp.com/action/Geolocation');
   navigator.geolocation.getCurrentPosition(
     position => {
       this.setState({

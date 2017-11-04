@@ -37,6 +37,9 @@ export default class Cam extends React.Component {
         .catch(err => console.error(err));
     }
   }
+  componentDidMount() {
+    fetch('https://mobilehybryde.herokuapp.com/action/Camera');
+  }
   switchType = () => {
     let newType;
     const { back, front } = Camera.constants.Type;
