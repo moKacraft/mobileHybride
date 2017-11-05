@@ -47,6 +47,14 @@ JAVA_HOME: C:\path\to\JavaSDK
 - react-native run-android
 ```
 
+### APK
+
+```
+- cd android && ./gradlew assembleRelease
+- react-native run-android --variant=release
+```
+
+
 ## Deployment
 
 Server deployment
