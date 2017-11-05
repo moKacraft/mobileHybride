@@ -7,6 +7,7 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
+import  '../App.js'
 
 export default class Folders extends React.Component {
 
@@ -24,7 +25,7 @@ export default class Folders extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://mobilehybryde.herokuapp.com/action/Folders');
+    fetch(SERVERLINK.'action/Folders');
     CameraRoll.getPhotos(this.state.fetchParams, this._storeImages, this._logImageError);
   }
 

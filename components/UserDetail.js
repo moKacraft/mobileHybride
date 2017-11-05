@@ -11,6 +11,7 @@ import {
   Tile,
   Icon,
 } from 'react-native-elements';
+import  '../App.js'
 
 export default class UserDetail extends React.Component {
   static navigationOptions = {
@@ -19,7 +20,7 @@ export default class UserDetail extends React.Component {
   };
 
   componentDidMount() {
-    fetch('https://mobilehybryde.herokuapp.com/action/UserDetail');
+    fetch(SERVERLINK.'action/UserDetail');
   }
 
   render() {

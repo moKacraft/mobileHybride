@@ -10,6 +10,7 @@ import {
 
 import Camera from 'react-native-camera';
 import { Icon } from 'react-native-elements';
+import  '../App.js'
 
 export default class Cam extends React.Component {
   static navigationOptions = {
@@ -38,7 +39,7 @@ export default class Cam extends React.Component {
     }
   }
   componentDidMount() {
-    fetch('https://mobilehybryde.herokuapp.com/action/Camera');
+    fetch(SERVERLINK.'action/Camera');
   }
   switchType = () => {
     let newType;

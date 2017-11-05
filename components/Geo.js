@@ -9,6 +9,7 @@ import {
 
 import MapView from 'react-native-maps';
 import { Icon } from 'react-native-elements';
+import  '../App.js'
 
 let { width, height } = Dimensions.get('window');
 
@@ -35,7 +36,7 @@ export default class Geo extends React.Component {
     };
   }
   componentDidMount() {
-  fetch('https://mobilehybryde.herokuapp.com/action/Geolocation');
+  fetch(SERVERLINK.'action/Geolocalisation');
   navigator.geolocation.getCurrentPosition(
     position => {
       this.setState({

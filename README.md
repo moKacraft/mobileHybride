@@ -9,7 +9,7 @@ A react native project with:
 - Push notifications
 ```
 
-## Getting Started
+## Application
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
@@ -59,9 +59,22 @@ or
 ```
 
 
-## Deployment
+## Server
 
-Server deployment
+# Server deployment
+ 
+What things you need to install in order to start the server localy
+
+- Install express:
+```
+npm install express
+```
+- Change the "SERVERLINK" variable to "localhost:5000" in "${ROOT}/App.js" :
+```
+- Run the server :
+```
+node server.js
+```
 
 ## Built With
 

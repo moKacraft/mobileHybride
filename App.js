@@ -13,6 +13,8 @@ import UserContacts from './components/UserContacts';
 import UserDetail from './components/UserDetail';
 import Push from './components/Push';
 
+SERVERLINK = "https://mobilehybryde.herokuapp.com/;
+
 export const ContactStack = StackNavigator({
   Contact: {
     screen: UserContacts,

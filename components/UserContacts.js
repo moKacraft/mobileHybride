@@ -15,6 +15,7 @@ import {
   SearchBar,
   Icon,
 } from 'react-native-elements';
+import  '../App.js'
 
 export default class UserContacts extends React.Component {
   static navigationOptions = {
@@ -36,7 +37,7 @@ export default class UserContacts extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://mobilehybryde.herokuapp.com/action/UserContacts');
+    fetch(SERVERLINK.'action/UserContacts');
     this.getContacts();
   }
 

@@ -10,6 +10,7 @@ import {
 
 import { Icon } from 'react-native-elements';
 import { PushNotification } from 'react-native-push-notification';
+import  '../App.js'
 
 export default class Push extends React.Component {
 
@@ -27,12 +28,12 @@ export default class Push extends React.Component {
     }
   }
   componentDidMount() {
-    fetch('https://mobilehybryde.herokuapp.com/action/NotificationPush');
+    fetch(SERVERLINK.'action/PushNotification');
     this.requestDate();
   }
 
   requestDate = () => {
-    fetch('https://mobilehybryde.herokuapp.com/hour')
+    fetch(SERVERLINK.'hour')
     .then((response) => response.json())
     .then((responseJson) => {
       console.log(responseJson);
