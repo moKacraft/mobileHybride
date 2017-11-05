@@ -61,17 +61,20 @@ or
 
 ## Server
 
-# Server deployment
- 
+### Installing
+
 What things you need to install in order to start the server localy
 
-- Install express:
+Install express:
 ```
-npm install express
-```
+- cd mobileHybride/backend
+- npm install express
 - Change the "SERVERLINK" variable to "localhost:5000" in "${ROOT}/App.js" :
 ```
-- Run the server :
+
+### Running
+
+Run the server :
 ```
 node server.js
 ```

@@ -28,12 +28,12 @@ export default class Push extends React.Component {
     }
   }
   componentDidMount() {
-    fetch(SERVERLINK.'action/PushNotification');
+    fetch(SERVERLINK+'action/PushNotification');
     this.requestDate();
   }
 
   requestDate = () => {
-    fetch(SERVERLINK.'hour')
+    fetch(SERVERLINK+'hour')
     .then((response) => response.json())
     .then((responseJson) => {
       console.log(responseJson);

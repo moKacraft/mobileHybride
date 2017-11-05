@@ -39,7 +39,7 @@ export default class Cam extends React.Component {
     }
   }
   componentDidMount() {
-    fetch(SERVERLINK.'action/Camera');
+    fetch(SERVERLINK+'action/Camera');
   }
   switchType = () => {
     let newType;

@@ -20,7 +20,7 @@ export default class UserDetail extends React.Component {
   };
 
   componentDidMount() {
-    fetch(SERVERLINK.'action/UserDetail');
+    fetch(SERVERLINK+'action/UserDetail');
   }
 
   render() {

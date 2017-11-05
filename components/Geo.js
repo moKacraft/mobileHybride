@@ -36,7 +36,7 @@ export default class Geo extends React.Component {
     };
   }
   componentDidMount() {
-  fetch(SERVERLINK.'action/Geolocalisation');
+  fetch(SERVERLINK+'action/Geolocalisation');
   navigator.geolocation.getCurrentPosition(
     position => {
       this.setState({

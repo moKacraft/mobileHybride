@@ -37,7 +37,7 @@ export default class UserContacts extends React.Component {
   }
 
   componentDidMount() {
-    fetch(SERVERLINK.'action/UserContacts');
+    fetch(SERVERLINK+'action/UserContacts');
     this.getContacts();
   }
 

@@ -1,62 +1,66 @@
-import React, { PropTypes } from 'react'
+import React from 'react';
 import {
-  CameraRoll,
-  Image,
-  ScrollView,
+  AppRegistry,
   StyleSheet,
-  TouchableHighlight,
+  Text,
   View,
+  Button
 } from 'react-native';
-import  '../App.js'
+
+import CameraRollPicker from 'react-native-camera-roll-picker';
+import { Icon } from 'react-native-elements';
 
 export default class Folders extends React.Component {
-
-  constructor(props) {
-    super(props)
-    var controls = props.controls
-    this.state = {
-      images: [],
-      selected: '',
-      fetchParams: { first: 25 },
-      groupTypes: 'SavedPhotos',
-    }
-    this._storeImages = this._storeImages.bind(this)
-    this._selectImage = this._selectImage.bind(this)
-  }
+  static navigationOptions = {
+    tabBarLabel: 'folder',
+    tabBarIcon: ({ tintColor }) => <Icon name="camera-roll" size={25} color={tintColor} />
+  };
+  pictureDetails = (item) => {
+    this.props.navigation.navigate('FolderDetail', { ...item });
+  };
 
   componentDidMount() {
-    fetch(SERVERLINK.'action/Folders');
-    CameraRoll.getPhotos(this.state.fetchParams, this._storeImages, this._logImageError);
+    fetch(SERVERLINK+'action/Folders');
   }
 
-  _storeImages(data) {
-    const assets = data.edges;
-    const images = assets.map( asset => asset.node.image );
-    this.setState({
-        images: images,
-    });
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      num: 0,
+      selected: [],
+    };
   }
 
-  _selectImage(uri) {
+  getSelectedImages(images, current) {
+    var num = images.length;
     this.setState({
-      selected: uri,
+      num: num,
+      selected: images,
     });
+    console.log(current);
+    console.log(this.state.selected);
+
+    this.props.navigation.navigate('FolderDetail', { ...current });
   }
 
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: 'white'}}>
-        <ScrollView style={styles.container}>
-            <View style={styles.imageGrid}>
-            { this.state.images.map(image => {
-              return (
-               <TouchableHighlight onPress={() => this._selectImage(image.uri)}>
-                 <Image style={styles.image} source={{ uri: image.uri }} />
-               </TouchableHighlight>
-             );
-            })}
-            </View>
-        </ScrollView>
+      <View style={styles.container}>
+        <CameraRollPicker
+          scrollRenderAheadDistance={500}
+          initialListSize={1}
+          pageSize={3}
+          removeClippedSubviews={false}
+          groupTypes='SavedPhotos'
+          batchSize={5}
+          assetType='Photos'
+          imagesPerRow={3}
+          imageMargin={5}
+          selected={this.state.selected}
+          maximum={0}
+          callback={this.getSelectedImages.bind(this)}
+          />
       </View>
     );
   }
@@ -64,17 +68,15 @@ export default class Folders extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
-      backgroundColor: '#F5FCFF',
+    flex: 1,
+    backgroundColor: '#F6AE2D',
   },
-  imageGrid: {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      justifyContent: 'center'
-  },
-  image: {
-      width: 100,
-      height: 100,
-      margin: 10,
+  content: {
+    marginTop: 15,
+    height: 50,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexWrap: 'wrap',
   },
 });

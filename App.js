@@ -7,13 +7,13 @@ import {
 
 import Geo from './components/Geo';
 import Cam from './components/Cam';
-import Folders_ from './components/Folders_';
+import Folders from './components/Folders';
 import FolderDetail from './components/FolderDetail'
 import UserContacts from './components/UserContacts';
 import UserDetail from './components/UserDetail';
 import Push from './components/Push';
 
-SERVERLINK = "https://mobilehybryde.herokuapp.com/;
+SERVERLINK = "https://mobilehybryde.herokuapp.com/";
 
 export const ContactStack = StackNavigator({
   Contact: {
@@ -27,7 +27,7 @@ export const ContactStack = StackNavigator({
 
 export const FoldersStack = StackNavigator({
   Folders: {
-    screen: Folders_,
+    screen: Folders,
     navigationOptions: {header: null}
   },
   FolderDetail: {
