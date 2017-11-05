@@ -1,6 +1,7 @@
 # mobileHybride
 
 A react native project with:
+
 ```
 - Geolocation on map
 - Phone Contacts list and contact details
@@ -8,6 +9,11 @@ A react native project with:
 - Saved images folder(s)
 - Push notifications
 ```
+
+## Built by
+
+* Nicolas Perdigon
+* Nicolas Pinatel
 
 ## Application
 
@@ -27,6 +33,7 @@ npm install -g react-native-cli
 - Create an environment variable with the Java SDK path: Windows → Search → System → Advanced System Settings → Environment variables → New
 ```
 JAVA_HOME: C:\path\to\JavaSDK
+ANDROID_HOME: C:\path\to\ANDROIDSDK
 ```
 - Create a Genymotion virtual terminal
 ```
@@ -44,6 +51,7 @@ JAVA_HOME: C:\path\to\JavaSDK
 ### Running
 ```
 - Launch Genymotion Virtual Terminal
+- Start GPS and camera
 - react-native run-android
 ```
 
@@ -78,13 +86,3 @@ Run the server :
 ```
 node server.js
 ```
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
