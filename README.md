@@ -47,6 +47,18 @@ JAVA_HOME: C:\path\to\JavaSDK
 - react-native run-android
 ```
 
+### APK
+
+```
+- cd android && ./gradlew assembleRelease
+- react-native run-android --variant=release
+or
+- Drag and drop the application APK file from the apk-release folder into the virtual device window.
+or
+- Run the following command in the apk-release folder: adb install <application name>.apk.
+```
+
+
 ## Deployment
 
 Server deployment
